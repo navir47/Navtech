@@ -1,0 +1,11 @@
+
+/* Table to store the categories */
+CREATE TABLE dbo.PRODUCT_CATEGORY
+(
+    CATEGORY_ID INT IDENTITY(1, 1) NOT NULL PRIMARY KEY,
+    CATEGORY_NAME NVARCHAR(50) NOT NULL,
+    CREATED_BY BIGINT NOT NULL, -- stores the ID of the admins who created the record
+    CREATED_ON DATETIME NOT NULL
+        FOREIGN KEY (CREATED_BY) REFERENCES dbo.USER_INFO (USERID)
+);
+
